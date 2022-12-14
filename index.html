@@ -118,6 +118,16 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
   </ul>
 </nav>
 
@@ -145,7 +155,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://emmapjlt.github.io/2022/12/12/Fiber/">
+    <link itemprop="mainEntityOfPage" href="https://emmapjlt.github.io/2022/10/08/Fiber/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -159,7 +169,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/12/12/Fiber/" class="post-title-link" itemprop="url">React Fiber</a>
+            <a href="/2022/10/08/Fiber/" class="post-title-link" itemprop="url">React Fiber</a>
         </h2>
 
         <div class="post-meta">
@@ -168,9 +178,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-12-12 11:25:08 / 修改时间：17:17:26" itemprop="dateCreated datePublished" datetime="2022-12-12T11:25:08+08:00">2022-12-12</time>
+              <time title="创建时间：2022-10-08 11:25:08" itemprop="dateCreated datePublished" datetime="2022-10-08T11:25:08+08:00">2022-10-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-12-14 17:03:40" itemprop="dateModified" datetime="2022-12-14T17:03:40+08:00">2022-12-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+                </span>
             </span>
 
           
@@ -189,7 +214,7 @@
 </blockquote>
 <p>JavaScript 是单线程运行的，而且浏览器要处理的事情非常多，它要负责页面的JS解析和执行、绘制、事件处理、静态资源加载和处理, 这些任务可以类比为’进程‘。</p>
 <blockquote>
-<p>这里特指Javascript 引擎是单线程运行的。 严格来说，Javascript 引擎和页面渲染引擎在同一个渲染线程，GUI 渲染和 Javascript 执行两者是互斥的. 另外异步 I&#x2F;O 操作底层实际上可能是多线程的在驱动。<br><img src="/2022/12/12/Fiber/1.png" alt="image"></p>
+<p>这里特指Javascript 引擎是单线程运行的。 严格来说，Javascript 引擎和页面渲染引擎在同一个渲染线程，GUI 渲染和 Javascript 执行两者是互斥的. 另外异步 I&#x2F;O 操作底层实际上可能是多线程的在驱动。<br><img src="/2022/10/08/Fiber/1.png" alt="image"></p>
 </blockquote>
 <ul>
 <li>浏览器渲染流程，主流浏览器帧率是 60hz，所以平均 16.6ms 刷新一次，每一帧需要完成的步骤如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">执行 JS 脚本  --  样式布局  --  样式绘制  -- ...</span><br></pre></td></tr></table></figure>
@@ -231,11 +256,11 @@
 <blockquote>
 <p>但由于兼容性不好，加上该回调函数被调用的频率太低，所以 React 自己实现了 polyfill。</p>
 </blockquote>
-<h3 id="2、Reconciler-协调器"><a href="#2、Reconciler-协调器" class="headerlink" title="2、Reconciler 协调器"></a>2、Reconciler 协调器</h3><p>更新工作从递归变成了可以中断的循环过程。每次循环都会调用 shouldYield 判断当前是否有剩余时间<br><img src="/2022/12/12/Fiber/2.png" alt="可中断的循环"></p>
+<h3 id="2、Reconciler-协调器"><a href="#2、Reconciler-协调器" class="headerlink" title="2、Reconciler 协调器"></a>2、Reconciler 协调器</h3><p>更新工作从递归变成了可以中断的循环过程。每次循环都会调用 shouldYield 判断当前是否有剩余时间<br><img src="/2022/10/08/Fiber/2.png" alt="可中断的循环"></p>
 <p>React16 如何解决中断更新时 DOM 渲染不完全的问题呢？</p>
 <p>在React16中，Reconciler 与 Renderer不再是交替工作。当 Scheduler 将任务交给 Reconciler 后，Reconciler 会为变化的虚拟DOM打上代表增&#x2F;删&#x2F;更新的标记</p>
-<p><img src="/2022/12/12/Fiber/3.png" alt="React 中的 Flags"></p>
-<p>React 16 架构中更新流程如下<br><img src="/2022/12/12/Fiber/4.png" alt="React 16 架构下的更新流程"></p>
+<p><img src="/2022/10/08/Fiber/3.png" alt="React 中的 Flags"></p>
+<p>React 16 架构中更新流程如下<br><img src="/2022/10/08/Fiber/4.png" alt="React 16 架构下的更新流程"></p>
 <p>其中红框中的步骤随时可能由于以下原因被中断：</p>
 <ul>
 <li>有其他更高优任务需要先更新</li>
@@ -249,12 +274,12 @@
 <p>1、下载源码，并对 <code>react</code>，<code>react-dom</code> 进行 build<br>2、使用 <code>npm link</code> 改变依赖包的目录指向<br>3、本地建一个 react 项目，将 <code>react</code> 与 <code>react-dom</code> 2个包指向我们刚才生成的包</p>
 </blockquote>
 <h2 id="五、JSX"><a href="#五、JSX" class="headerlink" title="五、JSX"></a>五、JSX</h2><p><a target="_blank" rel="noopener" href="https://babeljs.io/repl/#?browsers=&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=FAHgJglgbgBAzgFwJ4BsCmBeA3lgxgexXwCcAuGAcmLTAoF86A-ARgCYBmEAekikaA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=true&fileSize=false&timeTravel=false&sourceType=module&lineWrap=false&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=7.20.4&externalPlugins=&assumptions=%7B%7D">babel 在线编译</a></p>
-<p><img src="/2022/12/12/Fiber/5.png" alt="babel 编译 JSX"></p>
+<p><img src="/2022/10/08/Fiber/5.png" alt="babel 编译 JSX"></p>
 <p>通过上图可以发现，JSX 会被 babel 编译为 React.createElement，这也就是为什么我们每个使用 JSX 的 JS 文件中，都必须显式的声明 React。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import React from &#x27;react&#x27;;</span><br></pre></td></tr></table></figure>
 
 <p>JSX 并不是只能被编译为 React.createElement 方法，可以通过插件或者注释告诉 babel 用哪个方法进行编译。</p>
-<p><img src="/2022/12/12/Fiber/6.png" alt="使用别的方法编译 JSX"></p>
+<p><img src="/2022/10/08/Fiber/6.png" alt="使用别的方法编译 JSX"></p>
 <p>结论：JSX 是一种描述当前组件内容的数据结构，他不包含组件 schedule、reconcile、render 所需的相关信息。<br>比如如下信息就不包括在JSX中：</p>
 <ul>
 <li>组件在更新中的优先级</li>
@@ -273,8 +298,8 @@
 <h3 id="2、requestIdleCallback"><a href="#2、requestIdleCallback" class="headerlink" title="2、requestIdleCallback"></a>2、requestIdleCallback</h3><p>该 Api 主要是让浏览器在’有空’的时候就执行我们的回调，这个回调会传入一个期限，表示浏览器有多少时间供我们执行, 为了不耽误事，我们最好在这个时间范围内执行完毕。 </p>
 <p>但因为缺陷很多，React 自己实现了 Scheduler 库来实现这个目标。</p>
 <p>React 预订了几个优先级，如下，每个优先级对应的事件不同，这里先简单了解一下。</p>
-<p><img src="/2022/12/12/Fiber/7.png" alt="优先级.png"></p>
-<p><img src="/2022/12/12/Fiber/8.png" alt="优先级释义"></p>
+<p><img src="/2022/10/08/Fiber/7.png" alt="优先级.png"></p>
+<p><img src="/2022/10/08/Fiber/8.png" alt="优先级释义"></p>
 <h3 id="3、为什么不用-Generator"><a href="#3、为什么不用-Generator" class="headerlink" title="3、为什么不用 Generator"></a>3、为什么不用 Generator</h3><ul>
 <li>Generator 是会产生连锁反应的，类似于 async..await，它需要把每层函数都包装成 Generator</li>
 <li>Generator 是有状态的，中断后很难恢复</li>
@@ -287,7 +312,7 @@
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 指向父级Fiber节点</span><br><span class="line">this.return = null;</span><br><span class="line">// 指向子Fiber节点</span><br><span class="line">this.child = null;</span><br><span class="line">// 指向右边第一个兄弟Fiber节点</span><br><span class="line">this.sibling = null;</span><br></pre></td></tr></table></figure>
 举个例子，如下的组件结构：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function App() &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      i am</span><br><span class="line">      &lt;span&gt;a span&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-其对应的 Fiber 树的架构如下<br><img src="/2022/12/12/Fiber/9.png" alt="Fiber"></li>
+其对应的 Fiber 树的架构如下<br><img src="/2022/10/08/Fiber/9.png" alt="Fiber"></li>
 </ol>
 <blockquote>
 <p>之所以父节点使用 return，因为作为一个工作单元，return指节点执行完completeWork（后面会介绍）后会返回的下一个节点。子Fiber节点及其兄弟节点完成工作后会返回其父级节点，所以用return指代父级节点 。</p>
@@ -302,7 +327,7 @@
 </ol>
 </li>
 </ul>
-<p><img src="/2022/12/12/Fiber/10.png" alt="fiber node 属性"></p>
+<p><img src="/2022/10/08/Fiber/10.png" alt="fiber node 属性"></p>
 <h3 id="5、双缓存"><a href="#5、双缓存" class="headerlink" title="5、双缓存"></a>5、双缓存</h3><p>上面了解到 Fiber 的起源与架构，其中 Fiber 节点可以构成 Fiber 树。那么 Fiber 树和页面呈现的 DOM 树有什么关系，React 又是如何更新 DOM 的呢？</p>
 <p><strong>在内存中构建并直接替换</strong>的技术叫做<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8F%8C%E7%BC%93%E5%86%B2">双缓存</a>。</p>
 <p>打个比方：当我们用canvas绘制动画，每一帧绘制前都会调用 ctx.clearRect 清除上一帧的画面。如果当前帧画面计算量比较大，导致清除上一帧画面到绘制当前帧画面之间有较长间隙，就会出现白屏闪烁。<br>为了解决这个问题，我们可以在内存中绘制当前帧动画，绘制完毕后直接用当前帧替换上一帧画面，由于省去了两帧替换间的计算时间，不会出现从白屏到出现画面的闪烁情况。</p>
@@ -311,13 +336,13 @@
 <p><code>current Fiber</code> 树中的 <code>Fiber</code> 节点被称为 <code>current fiber</code>，<code>workInProgress Fiber</code> 树中的 <code>Fiber</code> 节点被称为 <code>workInProgress fiber</code>，他们通过 <code>alternate</code> 属性连接。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function App() &#123;</span><br><span class="line">  const [num, setNum] = useState(0)</span><br><span class="line">  return (</span><br><span class="line">    &lt;p onclick=&#123;()=&gt;setNum(num+1)&#125;&gt;</span><br><span class="line">      &#123;num&#125;</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDom.render(</span><br><span class="line">  &lt;App/&gt;, document.getElementById(&#x27;root&#x27;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/12/12/Fiber/11.png" alt="image.png"></p>
+<p><img src="/2022/10/08/Fiber/11.png" alt="image.png"></p>
 <p>我们目前拥有两颗 Fiber 树，左侧代表页面内容的 Fiber 树，称为 <code>current Fiber</code> 树，右侧是触发更新的时候，在内存中构建的 Fiber 树，称为 <code>workInProgress Fiber</code> 树，当 <code>workInProgress Fiber</code> 树完成了渲染，此时根 <code>fiber</code> 的 <code>current</code> 指针就会指向 <code>workInProgress Fiber</code> 树的根节点，此时，<code>workInProgress Fiber</code> 树就变成了<code>current Fiber</code> 树，；</p>
-<p><img src="/2022/12/12/Fiber/12.png" alt="image.png"></p>
-<p><img src="/2022/12/12/Fiber/13.png" alt="image.png"></p>
+<p><img src="/2022/10/08/Fiber/12.png" alt="image.png"></p>
+<p><img src="/2022/10/08/Fiber/13.png" alt="image.png"></p>
 <p>以上就是mount阶段发生的事情；那么在update阶段发生了什么呢？</p>
 <p>mount 阶段完成后，我们 <code>current Fiber</code> 树就已经存在了，<code>current Fiber</code> 树的 <code>alternate</code> 指针就指向当前的 <code>workInProgress Fiber</code> 树；当我们点击 p 标签，state 发生变化的时候就会触发 update，每次更新的时候，都会重新创建一个 <code>workInProgress Fiber</code> 树，会基于当前 Fiber 节点来创建。（更新会返回新的 jsx，把 jsx 对象和 current Fiber 做比较生成 workInprogress Fiber 树，这个过程就是我们常说的 Diff 算法）</p>
-<p><img src="/2022/12/12/Fiber/14.png" alt="image.png"></p>
+<p><img src="/2022/10/08/Fiber/14.png" alt="image.png"></p>
 <blockquote>
 <p>所以，首屏渲染和更新最大的区别就是，有没有进行 Diff 算法。</p>
 </blockquote>
@@ -397,17 +422,35 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Alicia</p>
+  <p class="site-author-name" itemprop="name">HTMS 文档</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
+    <div class="site-state-item site-state-posts">
+      <a href="/htmsDocs/">
+        <i class="fa fa-home fa-fw"></i>
+        <span class="site-state-item-name">首页</span>
+      </a>
+    </div>
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/htmsDocs/archives/">
         
-          <span class="site-state-item-count">1</span>
-          <span class="site-state-item-name">日志</span>
+          <i class="fa fa-archive fa-fw"></i>
+          <span class="site-state-item-name">日志 ( 1 )</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <i class="fa fa-th fa-fw"></i>
+        <span class="site-state-item-name">分类 ( 1 )</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <i class="fa fa-tags fa-fw"></i>
+        <span class="site-state-item-name">标签 ( 2 )</span></a>
       </div>
   </nav>
 </div>

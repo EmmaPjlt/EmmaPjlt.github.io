@@ -375,9 +375,7 @@ NexT.utils = {
       // There's no definition sidebar in the page front-matter.
       display = CONFIG.sidebar.display === 'always' || (CONFIG.sidebar.display === 'post' && hasTOC);
     }
-    if (display) {
-      window.dispatchEvent(new Event('sidebar:show'));
-    }
+    window.dispatchEvent(new Event('sidebar:show'));
   },
 
   getScript: function(url, callback, condition) {
