@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhtms_website=self.webpackChunkhtms_website||[]).push([[415],{3579:t=>{t.exports=JSON.parse('{"title":"test-01","slug":"/category/test-01","permalink":"/category/test-01","navigation":{"previous":{"title":"\u4ecb\u7ecd","permalink":"/"},"next":{"title":"test-01-01","permalink":"/test-01/test-01-01"}}}')}}]);

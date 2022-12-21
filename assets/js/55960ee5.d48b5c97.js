@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhtms_website=self.webpackChunkhtms_website||[]).push([[121],{8070:t=>{t.exports=JSON.parse('[{"label":"test-tag1","permalink":"/tags/test-tag-1","count":1},{"label":"test-tag2","permalink":"/tags/test-tag-2","count":1}]')}}]);

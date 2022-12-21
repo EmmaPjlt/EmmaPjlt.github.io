@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://emmapjlt.github.io/blog</id>
+    <title>HTMS 文档 Blog</title>
+    <updated>2022-12-16T08:52:34.116Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://emmapjlt.github.io/blog"/>
+    <subtitle>HTMS 文档 Blog</subtitle>
+    <icon>https://emmapjlt.github.io/../img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[test]]></title>
+        <id>/blog-test-001</id>
+        <link href="https://emmapjlt.github.io/blog/blog-test-001"/>
+        <updated>2022-12-16T08:52:34.116Z</updated>
+        <summary type="html"><![CDATA[test]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="test">test<a class="hash-link" href="#test" title="标题的直接链接">​</a></h2>]]></content>
+        <author>
+            <name>Alicia</name>
+        </author>
+        <category label="test" term="test"/>
+        <category label="hello" term="hello"/>
+    </entry>
+</feed>
