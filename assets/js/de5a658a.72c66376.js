@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkAlicia_website=self.webpackChunkAlicia_website||[]).push([[752],{8283:t=>{t.exports=JSON.parse('{"label":"test-tag2","permalink":"/tags/test-tag-2","allTagsPath":"/tags","count":1,"items":[{"id":"test","title":"test","description":"123","permalink":"/test"}]}')}}]);

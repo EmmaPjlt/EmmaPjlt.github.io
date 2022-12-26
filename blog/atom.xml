@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://emmapjlt.github.io/blog</id>
-    <title>HTMS 文档 Blog</title>
-    <updated>2022-12-16T08:52:34.116Z</updated>
+    <title>Alicia Blog</title>
+    <updated>2022-12-26T02:13:46.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://emmapjlt.github.io/blog"/>
-    <subtitle>HTMS 文档 Blog</subtitle>
-    <icon>https://emmapjlt.github.io/../img/favicon.ico</icon>
+    <subtitle>Alicia Blog</subtitle>
+    <icon>https://emmapjlt.github.io/../img/logo.webp</icon>
     <entry>
         <title type="html"><![CDATA[test]]></title>
         <id>/blog-test-001</id>
         <link href="https://emmapjlt.github.io/blog/blog-test-001"/>
-        <updated>2022-12-16T08:52:34.116Z</updated>
+        <updated>2022-12-26T02:13:46.000Z</updated>
         <summary type="html"><![CDATA[test]]></summary>
         <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="test">test<a class="hash-link" href="#test" title="标题的直接链接">​</a></h2>]]></content>
         <author>

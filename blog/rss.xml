@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>HTMS 文档 Blog</title>
+        <title>Alicia Blog</title>
         <link>https://emmapjlt.github.io/blog</link>
-        <description>HTMS 文档 Blog</description>
-        <lastBuildDate>Fri, 16 Dec 2022 08:52:34 GMT</lastBuildDate>
+        <description>Alicia Blog</description>
+        <lastBuildDate>Mon, 26 Dec 2022 02:13:46 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-Hans</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[test]]></title>
             <link>https://emmapjlt.github.io/blog/blog-test-001</link>
             <guid>/blog-test-001</guid>
-            <pubDate>Fri, 16 Dec 2022 08:52:34 GMT</pubDate>
+            <pubDate>Mon, 26 Dec 2022 02:13:46 GMT</pubDate>
             <description><![CDATA[test]]></description>
             <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="test">test<a class="hash-link" href="#test" title="标题的直接链接">​</a></h2>]]></content:encoded>
             <category>test</category>
