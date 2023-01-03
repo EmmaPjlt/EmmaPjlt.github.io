@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkAlicia_website=self.webpackChunkAlicia_website||[]).push([[787],{3901:e=>{e.exports=JSON.parse('{"label":"UDP","permalink":"/tags/udp","allTagsPath":"/tags","count":1,"items":[{"id":"Network/3\u3001TCP&UDP","title":"TCP \u548c UDP","description":"--------","permalink":"/Network/3\u3001TCP&UDP"}]}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkAlicia_website=self.webpackChunkAlicia_website||[]).push([[121],{8070:e=>{e.exports=JSON.parse('[{"label":"React","permalink":"/tags/react","count":1},{"label":"Fiber","permalink":"/tags/fiber","count":1},{"label":"test-tag1","permalink":"/tags/test-tag-1","count":1},{"label":"test-tag2","permalink":"/tags/test-tag-2","count":1}]')}}]);
