@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkAlicia_website=self.webpackChunkAlicia_website||[]).push([[89],{9499:e=>{e.exports=JSON.parse('{"title":"npm","slug":"/category/npm","permalink":"/category/npm","navigation":{"previous":{"title":"\u5a92\u4f53\u6d41+canvas","permalink":"/Canvas/canvas+\u5a92\u4f53\u6d41"},"next":{"title":"npm-webpack","permalink":"/npm/npm-webpack"}}}')}}]);
